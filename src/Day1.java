@@ -13,7 +13,7 @@ public class Day1 implements Day{
 
 
     public Day1(){
-        
+
     }
 
     public String run(){
