@@ -19,6 +19,7 @@ public class Day1 implements Day {
         pos = new Point(0, 0);
     }
 
+    @Override
     public String run() {
         int count = 0;
         //Add instructions to iterable list
