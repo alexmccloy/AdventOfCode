@@ -9,15 +9,16 @@ public class Main {
 
     public static void main(final String[] args) {
         Days = new ArrayList<>();
-        Days.add(new Day1());
+        Days.add(new Day1("inputs/Day1.txt"));
+        Days.add(new Day2("inputs/test/Day2.txt"));
 
-        int[] daysToRun = {1};
+        int[] daysToRun = {2};
         runDays(daysToRun);
     }
 
     private static void runDays(int[] daysToRun) {
         for(int i:daysToRun){
-            System.out.println("Day " + Integer.valueOf(i-1) + " result:\n" + Days.get(i-1).run());
+            System.out.println("Day " + Integer.valueOf(i) + " result:\n" + Days.get(i-1).run());
         }
     }
 }

@@ -14,7 +14,7 @@ public class Day1 implements Day {
     Point pos;
 
 
-    public Day1() {
+    public Day1(String inFile) {
         dir = Dir.NORTH;
         pos = new Point(0, 0);
     }

@@ -1,11 +1,43 @@
 import enumerators.Dir;
 
 import java.awt.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 /**
  * Created by amccl_000 on 04/12/2016.
  */
 public class Util {
+
+    /**
+     * Reads a file and returns entire file in a giant string
+     * @param fileName
+     * @return
+     */
+    public static String readFile(String fileName) {
+        ArrayList<String> lines = readFileLineByLine(fileName);
+        StringBuilder sb = new StringBuilder();
+        for (String line:lines) {
+            sb.append(line);
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    public static ArrayList<String> readFileLineByLine(String fileName) {
+        ArrayList<String> ret = new ArrayList<>();
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+            stream.forEach(ret::add); //wizardry
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
+
+
     public static Dir rotateDir(Dir cur, boolean clockwise) {
         //System.out.println("Dir - " + cur + (clockwise?"   R":"   L"));
         if(clockwise) { //RIGHT
